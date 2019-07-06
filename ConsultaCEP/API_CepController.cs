@@ -30,7 +30,8 @@ namespace AppCep
         [HttpGet("Enderecos/{Cep}")]
         public IEnumerable<CEP> GetPorCep(string cep)
         {
-            var Cep = _context.Cep.Where(s => s.Cep == cep);
+            List<CEP> Cep = _context.Cep.Where(s => s.Cep == cep).ToList();
+
             return Cep;
         }
         //Por Estado
